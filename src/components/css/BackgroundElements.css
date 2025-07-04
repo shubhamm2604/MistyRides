@@ -1,0 +1,9 @@
+/* BackgroundElements.css - REMOVE ALL BACKGROUND OVERLAYS */
+.background-elements-root,
+.background-elements-orb,
+.background-elements-orb1,
+.background-elements-orb2,
+.background-elements-orb3,
+.background-elements-grid {
+  display: none !important;
+}

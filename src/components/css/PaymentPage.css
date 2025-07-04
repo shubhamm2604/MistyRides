@@ -1,0 +1,105 @@
+.payment-page-root {
+  width: 100%;
+  max-width: 32rem;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 1.25rem;
+  box-shadow: 0 4px 32px 0 rgba(162,28,175,0.08);
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.payment-page-title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  color: #a21caf;
+  margin-bottom: 1.5rem;
+}
+.payment-page-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.payment-page-info-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #6b7280;
+  font-size: 1rem;
+}
+.payment-page-divider {
+  border-top: 1px solid #e5e7eb;
+  margin: 1rem 0;
+}
+.payment-page-vehicle-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.payment-page-vehicle-img {
+  width: 5rem;
+  height: 3.5rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb;
+}
+.payment-page-vehicle-name {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+.payment-page-vehicle-feature {
+  font-size: 0.9rem;
+  color: #a1a1aa;
+}
+.payment-page-addons-row {
+  font-size: 1rem;
+  color: #6b7280;
+  margin-top: 0.5rem;
+}
+.payment-page-total-row {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+.payment-page-total-label {
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: #f59e42;
+}
+.payment-page-btn {
+  padding: 1rem 0;
+  background: linear-gradient(90deg, #a21caf, #f59e42);
+  color: #fff;
+  border: none;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px 0 rgba(162,28,175,0.10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+.payment-page-btn:hover {
+  background: linear-gradient(90deg, #f59e42, #a21caf);
+  box-shadow: 0 4px 16px 0 rgba(245,158,66,0.10);
+}
+.payment-page-btn-loading {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.payment-page-btn-spinner {
+  animation: spin 1s linear infinite;
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #fff;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

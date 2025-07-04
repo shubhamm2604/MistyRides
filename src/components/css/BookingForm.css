@@ -1,0 +1,274 @@
+/* Core Wrapper */
+.bookingform-outer {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 95%;
+  width: 95%;
+  animation: fadeInUp 0.4s ease-out;
+}
+
+/* Header */
+.bookingform-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.bookingform-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.bookingform-desc {
+  color: #6b7280;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+/* Service Type Switcher */
+.bookingform-switcher-wrap {
+  margin-bottom: 1.5rem;
+}
+
+.bookingform-switcher {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.bookingform-switch-btn {
+  flex: 1 1 120px;
+  max-width: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: 1rem;
+  font-weight: 600;
+  background: #f3f4f6;
+  color: #374151;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.bookingform-switch-btn:hover {
+  background-color: #e0f2fe;
+  color: #0369a1;
+}
+
+.bookingform-switch-btn.active {
+  background: linear-gradient(to right, #0ea5e9, #0284c7);
+  color: #fff;
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.bookingform-switch-icon {
+  height: 16px;
+  width: 16px;
+}
+
+.bookingform-switch-label {
+  font-size: 0.875rem;
+}
+
+/* Success Message */
+.bookingform-success {
+  padding: 1rem;
+  background-color: #ecfdf5;
+  border: 1px solid #bbf7d0;
+  border-radius: 0.75rem;
+  color: #065f46;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Form Styles */
+.bookingform-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Form Layout */
+.bookingform-row {
+  display: flex;
+  flex-wrap: balanced;
+  gap: 1rem;
+}
+
+/* Make time and hours fields smaller, others full width */
+.bookingform-field {
+  flex: 1 1 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.bookingform-field.bookingform-field-time,
+.bookingform-field.bookingform-field-hours {
+  flex: 1 0 160px;
+  min-width: 120px;
+  max-width: 180px;
+  display: grid;
+}
+
+.bookingform-input,
+.bookingform-input.pac-target-input {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.bookingform-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bookingform-label-icon {
+  width: 16px;
+  height: 16px;
+  color: #0ea5e9;
+}
+
+/* Inputs */
+.bookingform-input {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid #d1d5db;
+  outline: none;
+  transition: border 0.2s;
+  width: 100%;
+  min-width: 180px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.bookingform-input:focus {
+  border-color: #0ea5e9;
+}
+
+.bookingform-input.pac-target-input {
+  padding: 0.75rem 1rem;
+  border-radius: 1rem;
+  background-color: #fff;
+  font-size: 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid #d1d5db;
+  width: 100%;
+  min-width: 180px;
+  max-width: 100%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  outline: none;
+  transition: border 0.2s;
+  box-sizing: border-box;
+}
+
+
+/* Swap Button */
+.bookingform-swap-btn-wrap {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.bookingform-swap-btn {
+  padding: 0.75rem;
+  background-color: #f3f4f6;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.bookingform-swap-btn:hover {
+  background-color: #bae6fd;
+  transform: scale(1.1);
+}
+
+.bookingform-swap-icon {
+  height: 20px;
+  width: 20px;
+  color: #4b5563;
+}
+
+.bookingform-swap-btn:hover .bookingform-swap-icon {
+  color: #0284c7;
+}
+
+/* Distance Info */
+.bookingform-info {
+  background-color: #eff6ff;
+  border: 1px solid #93c5fd;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  color: #1e3a8a;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Submit Button */
+.bookingform-submit-btn {
+  padding: 1rem 1.5rem;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(to right, #0284c7, #0369a1);
+  border-radius: 0.75rem;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.bookingform-submit-btn:hover {
+  background: linear-gradient(to right, #0369a1, #075985);
+  transform: scale(1.03);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.bookingform-submit-btn:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+  .bookingform-row {
+    flex-direction: column;
+  }
+  .bookingform-field,
+  .bookingform-field.bookingform-field-time,
+  .bookingform-field.bookingform-field-hours {
+    flex: 1 1 100%;
+    min-width: 100%;
+    max-width: 100%;
+  }
+}

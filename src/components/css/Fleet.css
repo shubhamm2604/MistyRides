@@ -1,0 +1,373 @@
+/* Fleet Section */
+.fleet-root {
+  padding: 5rem 1rem;
+  background: linear-gradient(to bottom right, #f9fafb, #ebf4ff);
+}
+
+.fleet-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.fleet-header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.fleet-header-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: #f0f9ff;
+  color: #0369a1;
+  border-radius: 9999px;
+  font-size: 1rem;
+  font-weight: 500;
+  margin:0.2rem;
+  border: 0.8px solid #7bcefa;
+}
+
+.fleet-header-badge-icon {
+   width: 1.25rem;
+  height: 1.25rem;
+  fill: currentColor;
+}
+
+.fleet-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin:2px;
+}
+
+.fleet-title-gradient {
+  display: block;
+  background: linear-gradient(to right, #0284c7, #c026d3);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.fleet-desc {
+  color: #4b5563;
+  font-size: 1.25rem;
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+.fleet-grid{
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  margin-bottom: 4rem;
+}
+
+.fleet-grid-horizontal {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  width: 100%;
+  max-width: 100%;
+  gap: 24px;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.fleet-grid-horizontal::-webkit-scrollbar {
+  display: none;
+}
+
+.fleet-card {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 32rem;
+}
+
+.fleet-card:hover {
+  transform: translateY(-0.5rem);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+
+.fleet-card-imgbox {
+  position: relative;
+  height: 16rem;
+  overflow: hidden;
+}
+
+.fleet-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.fleet-card:hover .fleet-card-img {
+  transform: scale(1.08);
+}
+
+.fleet-card-img-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, #18181b 40%, transparent 100%);
+  opacity: 0.5;
+}
+
+.fleet-card-info {
+  padding: 2rem 0 0 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.fleet-card-info-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.fleet-card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.fleet-card-price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  background: linear-gradient(to right, #2563eb, #10b981);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.fleet-card-desc {
+  font-size: 0.95rem;
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+}
+
+.fleet-card-capacity-row {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.fleet-card-capacity {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #6366f1;
+  font-size: 1rem;
+}
+
+.fleet-card-capacity-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.fleet-card-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.fleet-card-feature {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #64748b;
+  font-size: 1rem;
+}
+
+.fleet-card-feature-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #6366f1;
+  border-radius: 50%;
+}
+
+.fleet-card-btn {
+  width: 100%;
+  background: linear-gradient(to right, #3b82f6, #06b6d4);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 0.75rem;
+  padding: 1rem 0;
+  margin-top: auto;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+  box-shadow: 0 2px 8px 0 rgba(99, 102, 241, 0.10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.fleet-card-btn.popular {
+  background: linear-gradient(to right, #0284c7, #c026d3);
+  color: #fff;
+}
+
+.fleet-card-btn:hover {
+  background: #6366f1;
+  color: #fff;
+  transform: scale(1.04);
+  box-shadow: 0 4px 16px 0 rgba(99, 102, 241, 0.12);
+}
+
+.fleet-card-btn-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.fleet-features-box {
+  background: linear-gradient(to right, #0284c7, #c026d3);
+  border-radius: 2rem;
+  padding: 3rem 2rem;
+  color: #fff;
+  margin-bottom: 4rem;
+}
+
+.fleet-features-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.fleet-features-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.fleet-features-desc {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.fleet-features-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .fleet-features-list {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.fleet-feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.fleet-feature-iconbox {
+  width: 3rem;
+  height: 3rem;
+  background: linear-gradient(to right, #3b82f6, #06b6d4);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.fleet-feature-icon {
+  width: 2rem;
+  height: 2rem;
+  color: #fff;
+}
+
+.fleet-feature-label {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Gradient Background Classes for Icons */
+.green-to-emerald {
+  background: linear-gradient(to right, #22c55e, #059669);
+}
+
+.blue-to-cyan {
+  background: linear-gradient(to right, #3b82f6, #06b6d4);
+}
+
+.yellow-to-orange {
+  background: linear-gradient(to right, #eab308, #f97316);
+}
+
+.purple-to-pink {
+  background: linear-gradient(to right, #8b5cf6, #ec4899);
+}
+
+.indigo-to-blue {
+  background: linear-gradient(to right, #6366f1, #3b82f6);
+}
+
+.red-to-pink {
+  background: linear-gradient(to right, #ef4444, #ec4899);
+}
+
+.teal-to-green {
+  background: linear-gradient(to right, #14b8a6, #22c55e);
+}
+
+.orange-to-red {
+  background: linear-gradient(to right, #f97316, #ef4444);
+}
+
+.fleet-scroll-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  width: 100%;
+}
+.fleet-scroll-arrow {
+  background: linear-gradient(to right, #0284c7, #c026d3);
+  border: none;
+  color: #fff;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px 0 rgba(99, 102, 241, 0.10);
+  cursor: pointer;
+  z-index: 2;
+  transition: background 0.2s, transform 0.2s;
+}
+.fleet-scroll-arrow.left {
+  margin-right: 1rem;
+}
+.fleet-scroll-arrow.right {
+  margin-left: 1rem;
+}
+.fleet-scroll-arrow:active {
+  transform: scale(0.95);
+}
+
+.fleet-grid-horizontal.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.fleet-grid-horizontal.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

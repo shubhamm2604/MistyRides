@@ -1,0 +1,227 @@
+/* Hero.css - Recreated from Tailwind-based JSX to Normal CSS (Improved Responsive + Tailwind Accurate Colors) */
+
+.hero-section-bg {
+  min-height: 100vh;
+  padding-top: 5rem;
+  position: relative;
+  overflow: hidden;
+  background: none !important;
+}
+
+.hero-section-bg::before,
+.hero-section-bg::after {
+  content: none !important;
+  display: none !important;
+}
+
+.hero-section-wide {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.8s ease-out;
+  max-width: 600px;
+  width: 600px; /* Ensures it doesn't stretch too wide */
+}
+
+.hero-left-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem; /* px-4 py-2 */
+  background-color: #f0f9ff;
+  color: #0369a1; /* Tailwind's text-primary-700 */
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 500; /* font-medium */
+  border-radius: 9999px; /* fully rounded like rounded-full */
+  width: max-content;
+}
+
+.hero-badge-icon {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+  fill: currentColor;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  font-weight: 700;
+  color: #111827;
+  padding-top: 2px;
+  margin-bottom: auto;
+  margin-top: auto;
+}
+
+@media (min-width: 1024px) {
+  .hero-title {
+    font-size: 4rem;
+  }
+}
+
+.hero-title-gradient {
+  background: linear-gradient(to right, #0284c7, #c026d3);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: #6b7280;
+  line-height: 1.6;
+  max-width: 40rem;
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  padding-top: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .hero-stats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.hero-stat-box {
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .hero-stat-box {
+    text-align: left;
+  }
+}
+
+.hero-stat-icon {
+  background-color: #f0f9ff;
+   color: #0369a1; 
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.hero-stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.hero-stat-label {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.hero-right {
+  padding-left: 0;
+  width: 700px;
+}
+
+@media (min-width: 1024px) {
+  .hero-right {
+    padding-left: 2rem;
+  }
+}
+
+.booking-form-outer {
+  background: transparent;
+  z-index: 2;
+  width: 100%;
+  max-width: 1380px;
+}
+
+.booking-form-wrapper {
+  width: 100%;
+}
+
+.hero-trust {
+  background-color: transparent;
+  backdrop-filter: none;
+  border-top: 1px solid #e5e7eb;
+  margin-top: 4rem;
+}
+
+.hero-trust-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+
+.hero-trust-title {
+  color: #6b7280;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.hero-trust-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  opacity: 0.6;
+  flex-wrap: wrap;
+}
+
+.hero-trust-logo {
+  height: 2rem;
+  width: 6rem;
+  background-color: transparent;
+  border-radius: 0.375rem;
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes zoomInOut {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.zoom-pulse {
+  animation: zoomInOut 0.6s ease-in-out;
+}

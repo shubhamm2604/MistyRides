@@ -1,0 +1,26 @@
+/* Remove any background from the entire page */
+body, html {
+  background: none !important;
+  background-color: transparent !important;
+}
+
+/* App root and section layout for normal CSS */
+.app-root {
+  min-height: 100vh;
+  background: none !important;
+  position: relative;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.app-section {
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 2rem 0;
+}
+.app-section-main {
+  flex: 1;
+}

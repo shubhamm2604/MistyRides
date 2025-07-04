@@ -1,0 +1,170 @@
+/* Features.css */
+
+.features-section {
+  padding: 5rem 1rem;
+  background: linear-gradient(to bottom right, #f9fafb, #ebf4ff);
+}
+
+.features-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.features-header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.features-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: #f0f9ff;
+  color: #0369a1;
+  border-radius: 9999px;
+  font-size: 1rem;
+  font-weight: 500;
+  margin:0.2rem;
+   border: 0.8px solid #7bcefa;
+}
+
+.icon-small {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: currentColor;
+}
+
+.features-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin:2px;
+}
+
+.features-gradient-text {
+  display: block;
+   background: linear-gradient(to right, #0284c7, #c026d3);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.features-subtitle {
+  font-size: 1.25rem;
+  color: #4b5563;
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+.features-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.feature-card {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-0.5rem);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: white;
+}
+
+.feature-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.feature-description {
+  font-size: 0.875rem;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+/* Stats Section */
+
+.features-stats {
+  margin-top: 5rem;
+  background-color: #ffffff;
+  padding: 3rem 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+  text-align: center;
+}
+
+.stat-item .stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(to right, #2563eb, #10b981);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stat-item .stat-label {
+  color: #6b7280;
+  font-weight: 500;
+}
+
+/* Gradient Background Classes for Icons */
+
+.green-to-emerald {
+  background: linear-gradient(to right, #22c55e, #059669);
+}
+
+.blue-to-cyan {
+  background: linear-gradient(to right, #3b82f6, #06b6d4);
+}
+
+.yellow-to-orange {
+  background: linear-gradient(to right, #eab308, #f97316);
+}
+
+.purple-to-pink {
+  background: linear-gradient(to right, #8b5cf6, #ec4899);
+}
+
+.indigo-to-blue {
+  background: linear-gradient(to right, #6366f1, #3b82f6);
+}
+
+.red-to-pink {
+  background: linear-gradient(to right, #ef4444, #ec4899);
+}
+
+.teal-to-green {
+  background: linear-gradient(to right, #14b8a6, #22c55e);
+}
+
+.orange-to-red {
+  background: linear-gradient(to right, #f97316, #ef4444);
+}
