@@ -5,29 +5,31 @@
   border-radius: 1.5rem;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 2rem;
-  margin: 2rem auto;
-  max-width: 95%;
-  width: 95%;
+  padding: 1.5rem;
+  margin: 1rem auto;
+  max-width: 100%;
+  width: 100%;
   animation: fadeInUp 0.4s ease-out;
 }
 
 /* Header */
 .bookingform-header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .bookingform-title {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: #1f2937;
+  line-height: 1.3;
 }
 
 .bookingform-desc {
   color: #6b7280;
-  font-size: 1rem;
+  font-size: 0.9rem;
   margin-top: 0.5rem;
+  line-height: 1.4;
 }
 
 /* Service Type Switcher */
@@ -36,27 +38,27 @@
 }
 
 .bookingform-switcher {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
   justify-content: center;
 }
 
 .bookingform-switch-btn {
-  flex: 1 1 120px;
-  max-width: 180px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1rem;
-  border-radius: 1rem;
+  gap: 0.4rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: 0.8rem;
   font-weight: 600;
   background: #f3f4f6;
   color: #374151;
   transition: all 0.3s ease;
   border: none;
   cursor: pointer;
+  font-size: 0.8rem;
+  min-height: 2.5rem;
 }
 
 .bookingform-switch-btn:hover {
@@ -67,17 +69,19 @@
 .bookingform-switch-btn.active {
   background: linear-gradient(to right, #0ea5e9, #0284c7);
   color: #fff;
-  transform: scale(1.05);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .bookingform-switch-icon {
-  height: 16px;
-  width: 16px;
+  height: 14px;
+  width: 14px;
+  flex-shrink: 0;
 }
 
 .bookingform-switch-label {
-  font-size: 0.875rem;
+  font-size: 0.8rem;
+  white-space: nowrap;
 }
 
 /* Success Message */
@@ -90,109 +94,89 @@
   font-weight: 500;
   text-align: center;
   margin-bottom: 1.5rem;
+  font-size: 0.9rem;
 }
 
 /* Form Styles */
 .bookingform-form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 /* Form Layout */
 .bookingform-row {
   display: flex;
-  flex-wrap: balanced;
+  flex-direction: column;
   gap: 1rem;
+  width: 100%;
 }
 
-/* Make time and hours fields smaller, others full width */
 .bookingform-field {
-  flex: 1 1 250px;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  width: 100%;
+  min-width: 0;
 }
 
 .bookingform-field.bookingform-field-time,
 .bookingform-field.bookingform-field-hours {
-  flex: 1 0 160px;
-  min-width: 120px;
-  max-width: 180px;
-  display: grid;
-}
-
-.bookingform-input,
-.bookingform-input.pac-target-input {
   width: 100%;
-  min-width: 0;
-  max-width: 100%;
-  box-sizing: border-box;
 }
 
 .bookingform-label {
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: #374151;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.4rem;
 }
 
 .bookingform-label-icon {
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   color: #0ea5e9;
+  flex-shrink: 0;
 }
 
 /* Inputs */
-.bookingform-input {
-  padding: 0.75rem 1rem;
-  font-size: 1rem;
-  border-radius: 0.75rem;
-  border: 1px solid #d1d5db;
-  outline: none;
-  transition: border 0.2s;
-  width: 100%;
-  min-width: 180px;
-  max-width: 100%;
-  box-sizing: border-box;
-}
-
-.bookingform-input:focus {
-  border-color: #0ea5e9;
-}
-
+.bookingform-input,
 .bookingform-input.pac-target-input {
-  padding: 0.75rem 1rem;
-  border-radius: 1rem;
-  background-color: #fff;
-  font-size: 1rem;
-  border-radius: 0.75rem;
+  padding: 0.7rem 0.8rem;
+  font-size: 0.9rem;
+  border-radius: 0.6rem;
   border: 1px solid #d1d5db;
-  width: 100%;
-  min-width: 180px;
-  max-width: 100%;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
   outline: none;
   transition: border 0.2s;
+  width: 100%;
   box-sizing: border-box;
+  background-color: #fff;
+  min-height: 2.5rem;
 }
 
+.bookingform-input:focus,
+.bookingform-input.pac-target-input:focus {
+  border-color: #0ea5e9;
+  box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.1);
+}
 
 /* Swap Button */
 .bookingform-swap-btn-wrap {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
+  margin: 0.5rem 0;
 }
 
 .bookingform-swap-btn {
-  padding: 0.75rem;
+  padding: 0.6rem;
   background-color: #f3f4f6;
-  border-radius: 9999px;
+  border-radius: 50%;
   transition: all 0.3s ease;
   border: none;
+  cursor: pointer;
 }
 
 .bookingform-swap-btn:hover {
@@ -201,8 +185,8 @@
 }
 
 .bookingform-swap-icon {
-  height: 20px;
-  width: 20px;
+  height: 18px;
+  width: 18px;
   color: #4b5563;
 }
 
@@ -214,30 +198,32 @@
 .bookingform-info {
   background-color: #eff6ff;
   border: 1px solid #93c5fd;
-  padding: 1rem;
-  border-radius: 0.75rem;
+  padding: 0.8rem;
+  border-radius: 0.6rem;
   color: #1e3a8a;
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   font-weight: 500;
+  text-align: center;
 }
 
 /* Submit Button */
 .bookingform-submit-btn {
-  padding: 1rem 1.5rem;
+  padding: 0.8rem 1rem;
   width: 100%;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: white;
   background: linear-gradient(to right, #0284c7, #0369a1);
-  border-radius: 0.75rem;
+  border-radius: 0.6rem;
   border: none;
   transition: all 0.3s ease;
+  min-height: 2.8rem;
 }
 
 .bookingform-submit-btn:hover {
   background: linear-gradient(to right, #0369a1, #075985);
-  transform: scale(1.03);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  transform: scale(1.02);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
 .bookingform-submit-btn:disabled {
@@ -250,25 +236,171 @@
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-/* Responsive Tweaks */
-@media (max-width: 768px) {
-  .bookingform-row {
-    flex-direction: column;
+/* Responsive breakpoints */
+@media (min-width: 480px) {
+  .bookingform-outer {
+    padding: 2rem;
+    margin: 1.5rem auto;
   }
-  .bookingform-field,
+  
+  .bookingform-title {
+    font-size: 1.75rem;
+  }
+  
+  .bookingform-desc {
+    font-size: 1rem;
+  }
+  
+  .bookingform-switcher {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+  }
+  
+  .bookingform-switch-btn {
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+  }
+  
+  .bookingform-switch-icon {
+    height: 16px;
+    width: 16px;
+  }
+  
+  .bookingform-switch-label {
+    font-size: 0.875rem;
+  }
+  
+  .bookingform-label {
+    font-size: 0.875rem;
+  }
+  
+  .bookingform-label-icon {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .bookingform-input,
+  .bookingform-input.pac-target-input {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border-radius: 0.75rem;
+  }
+  
+  .bookingform-submit-btn {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .bookingform-row {
+    flex-direction: row;
+    align-items: end;
+  }
+  
   .bookingform-field.bookingform-field-time,
   .bookingform-field.bookingform-field-hours {
-    flex: 1 1 100%;
-    min-width: 100%;
-    max-width: 100%;
+    flex: 0 0 140px;
+    min-width: 120px;
+  }
+  
+  .bookingform-swap-btn-wrap {
+    margin: 0;
+    padding-bottom: 0.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .bookingform-outer {
+    max-width: 95%;
+  }
+  
+  .bookingform-title {
+    font-size: 2rem;
+  }
+  
+  .bookingform-field.bookingform-field-time,
+  .bookingform-field.bookingform-field-hours {
+    flex: 0 0 160px;
+    min-width: 140px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .bookingform-field.bookingform-field-time,
+  .bookingform-field.bookingform-field-hours {
+    flex: 0 0 180px;
+    min-width: 160px;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 360px) {
+  .bookingform-outer {
+    padding: 1rem;
+    margin: 0.5rem auto;
+    border-radius: 1rem;
+  }
+  
+  .bookingform-title {
+    font-size: 1.3rem;
+  }
+  
+  .bookingform-desc {
+    font-size: 0.8rem;
+  }
+  
+  .bookingform-switcher {
+    gap: 0.4rem;
+  }
+  
+  .bookingform-switch-btn {
+    padding: 0.5rem 0.6rem;
+    font-size: 0.75rem;
+    min-height: 2.2rem;
+  }
+  
+  .bookingform-switch-icon {
+    height: 12px;
+    width: 12px;
+  }
+  
+  .bookingform-switch-label {
+    font-size: 0.75rem;
+  }
+  
+  .bookingform-label {
+    font-size: 0.75rem;
+  }
+  
+  .bookingform-label-icon {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .bookingform-input,
+  .bookingform-input.pac-target-input {
+    padding: 0.6rem 0.7rem;
+    font-size: 0.85rem;
+    min-height: 2.2rem;
+  }
+  
+  .bookingform-submit-btn {
+    padding: 0.7rem 0.8rem;
+    font-size: 0.85rem;
+    min-height: 2.5rem;
+  }
+  
+  .bookingform-info {
+    padding: 0.6rem;
+    font-size: 0.75rem;
   }
 }

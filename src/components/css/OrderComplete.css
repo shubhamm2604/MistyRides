@@ -1,62 +1,202 @@
 .order-complete-root {
   width: 100%;
-  max-width: 32rem;
-  margin: 3rem auto;
+  max-width: 100%;
+  margin: 2rem auto;
   background: #fff;
-  border-radius: 1.25rem;
+  border-radius: 1rem;
   box-shadow: 0 4px 32px 0 rgba(34,211,238,0.08);
-  padding: 2.5rem 2rem;
+  padding: 2rem 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
 }
+
 .order-complete-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 0.8rem;
+  text-align: center;
 }
+
 .order-complete-iconbox {
   background: #d1fae5;
   border-radius: 50%;
-  width: 5rem;
-  height: 5rem;
+  width: 4rem;
+  height: 4rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
 }
+
 .order-complete-icon {
-  width: 3rem;
-  height: 3rem;
+  width: 2.5rem;
+  height: 2.5rem;
   color: #22d3ee;
 }
+
 .order-complete-title {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   color: #22d3ee;
+  line-height: 1.3;
 }
+
 .order-complete-message {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #334155;
+  line-height: 1.5;
 }
+
 .order-complete-btn {
-  margin-top: 1.5rem;
-  padding: 1rem 2.5rem;
+  margin-top: 1rem;
+  padding: 0.8rem 2rem;
   background: linear-gradient(90deg, #22d3ee, #f59e42);
   color: #fff;
   border: none;
-  border-radius: 0.75rem;
+  border-radius: 0.6rem;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1rem;
   cursor: pointer;
-  transition: background 0.2s, box-shadow 0.2s;
+  transition: all 0.2s;
   box-shadow: 0 2px 8px 0 rgba(34,211,238,0.10);
   text-decoration: none;
   display: inline-block;
+  text-align: center;
 }
+
 .order-complete-btn:hover {
   background: linear-gradient(90deg, #f59e42, #22d3ee);
   box-shadow: 0 4px 16px 0 rgba(245,158,66,0.10);
+  transform: translateY(-1px);
+}
+
+/* Responsive breakpoints */
+@media (min-width: 480px) {
+  .order-complete-root {
+    max-width: 28rem;
+    margin: 2.5rem auto;
+    padding: 2.5rem 2rem;
+    gap: 2rem;
+    border-radius: 1.25rem;
+  }
+  
+  .order-complete-content {
+    gap: 1rem;
+  }
+  
+  .order-complete-iconbox {
+    width: 4.5rem;
+    height: 4.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .order-complete-icon {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+  
+  .order-complete-title {
+    font-size: 1.75rem;
+  }
+  
+  .order-complete-message {
+    font-size: 1.1rem;
+  }
+  
+  .order-complete-btn {
+    margin-top: 1.25rem;
+    padding: 1rem 2.25rem;
+    font-size: 1.05rem;
+    border-radius: 0.75rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .order-complete-root {
+    max-width: 30rem;
+  }
+  
+  .order-complete-title {
+    font-size: 1.9rem;
+  }
+  
+  .order-complete-message {
+    font-size: 1.15rem;
+  }
+  
+  .order-complete-btn {
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .order-complete-root {
+    max-width: 32rem;
+    padding: 2.5rem 2rem;
+  }
+  
+  .order-complete-iconbox {
+    width: 5rem;
+    height: 5rem;
+  }
+  
+  .order-complete-icon {
+    width: 3rem;
+    height: 3rem;
+  }
+  
+  .order-complete-title {
+    font-size: 2rem;
+  }
+  
+  .order-complete-message {
+    font-size: 1.2rem;
+  }
+  
+  .order-complete-btn {
+    margin-top: 1.5rem;
+    padding: 1rem 2.5rem;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 360px) {
+  .order-complete-root {
+    margin: 1.5rem auto;
+    padding: 1.5rem 1.25rem;
+    gap: 1.25rem;
+    border-radius: 0.8rem;
+  }
+  
+  .order-complete-content {
+    gap: 0.6rem;
+  }
+  
+  .order-complete-iconbox {
+    width: 3.5rem;
+    height: 3.5rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .order-complete-icon {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+  
+  .order-complete-title {
+    font-size: 1.3rem;
+  }
+  
+  .order-complete-message {
+    font-size: 0.9rem;
+  }
+  
+  .order-complete-btn {
+    margin-top: 0.8rem;
+    padding: 0.7rem 1.75rem;
+    font-size: 0.9rem;
+  }
 }

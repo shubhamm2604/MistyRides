@@ -1,105 +1,321 @@
 .payment-page-root {
   width: 100%;
-  max-width: 32rem;
-  margin: 2rem auto;
+  max-width: 100%;
+  margin: 1.5rem auto;
   background: #fff;
-  border-radius: 1.25rem;
+  border-radius: 1rem;
   box-shadow: 0 4px 32px 0 rgba(162,28,175,0.08);
-  padding: 2.5rem 2rem;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
 }
+
 .payment-page-title {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   text-align: center;
   color: #a21caf;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
 }
+
 .payment-page-summary {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.6rem;
 }
+
 .payment-page-info-row {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.6rem;
   color: #6b7280;
-  font-size: 1rem;
+  font-size: 0.9rem;
+  flex-wrap: wrap;
 }
+
 .payment-page-divider {
   border-top: 1px solid #e5e7eb;
-  margin: 1rem 0;
+  margin: 0.8rem 0;
 }
+
 .payment-page-vehicle-row {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.8rem;
+  flex-wrap: wrap;
 }
+
 .payment-page-vehicle-img {
-  width: 5rem;
-  height: 3.5rem;
+  width: 4rem;
+  height: 2.8rem;
   object-fit: cover;
-  border-radius: 0.5rem;
+  border-radius: 0.4rem;
   border: 1px solid #e5e7eb;
+  flex-shrink: 0;
 }
+
 .payment-page-vehicle-name {
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 1rem;
+  color: #111827;
 }
+
 .payment-page-vehicle-feature {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: #a1a1aa;
 }
+
 .payment-page-addons-row {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #6b7280;
-  margin-top: 0.5rem;
+  margin-top: 0.4rem;
 }
+
 .payment-page-total-row {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 2px solid #f3f4f6;
 }
+
 .payment-page-total-label {
   font-weight: bold;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: #f59e42;
 }
+
 .payment-page-btn {
-  padding: 1rem 0;
+  padding: 0.8rem 0;
   background: linear-gradient(90deg, #a21caf, #f59e42);
   color: #fff;
   border: none;
-  border-radius: 0.75rem;
+  border-radius: 0.6rem;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1rem;
   cursor: pointer;
-  transition: background 0.2s, box-shadow 0.2s;
+  transition: all 0.2s;
   box-shadow: 0 2px 8px 0 rgba(162,28,175,0.10);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem;
+  gap: 0.6rem;
+  width: 100%;
+  min-height: 2.8rem;
 }
+
 .payment-page-btn:hover {
   background: linear-gradient(90deg, #f59e42, #a21caf);
   box-shadow: 0 4px 16px 0 rgba(245,158,66,0.10);
 }
+
 .payment-page-btn-loading {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.4rem;
 }
+
 .payment-page-btn-spinner {
   animation: spin 1s linear infinite;
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 1.1rem;
+  height: 1.1rem;
   color: #fff;
+  flex-shrink: 0;
 }
+
 @keyframes spin {
   to { transform: rotate(360deg); }
+}
+
+/* Responsive breakpoints */
+@media (min-width: 480px) {
+  .payment-page-root {
+    max-width: 28rem;
+    margin: 2rem auto;
+    padding: 2rem;
+    gap: 2rem;
+    border-radius: 1.25rem;
+  }
+  
+  .payment-page-title {
+    font-size: 1.75rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .payment-page-summary {
+    gap: 0.75rem;
+  }
+  
+  .payment-page-info-row {
+    font-size: 0.95rem;
+    gap: 0.75rem;
+  }
+  
+  .payment-page-divider {
+    margin: 1rem 0;
+  }
+  
+  .payment-page-vehicle-row {
+    gap: 1rem;
+  }
+  
+  .payment-page-vehicle-img {
+    width: 4.5rem;
+    height: 3.2rem;
+    border-radius: 0.5rem;
+  }
+  
+  .payment-page-vehicle-name {
+    font-size: 1.05rem;
+  }
+  
+  .payment-page-vehicle-feature {
+    font-size: 0.85rem;
+  }
+  
+  .payment-page-addons-row {
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+  }
+  
+  .payment-page-total-row {
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
+  }
+  
+  .payment-page-total-label {
+    font-size: 1.25rem;
+  }
+  
+  .payment-page-btn {
+    padding: 1rem 0;
+    font-size: 1.05rem;
+    gap: 0.75rem;
+    border-radius: 0.75rem;
+  }
+  
+  .payment-page-btn-spinner {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .payment-page-root {
+    max-width: 30rem;
+  }
+  
+  .payment-page-info-row {
+    font-size: 1rem;
+  }
+  
+  .payment-page-vehicle-name {
+    font-size: 1.1rem;
+  }
+  
+  .payment-page-vehicle-feature {
+    font-size: 0.9rem;
+  }
+  
+  .payment-page-addons-row {
+    font-size: 1rem;
+  }
+  
+  .payment-page-total-label {
+    font-size: 1.3rem;
+  }
+  
+  .payment-page-btn {
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .payment-page-root {
+    max-width: 32rem;
+    padding: 2.5rem 2rem;
+  }
+  
+  .payment-page-title {
+    font-size: 2rem;
+  }
+  
+  .payment-page-vehicle-img {
+    width: 5rem;
+    height: 3.5rem;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 360px) {
+  .payment-page-root {
+    margin: 1rem auto;
+    padding: 1.25rem;
+    gap: 1.25rem;
+    border-radius: 0.8rem;
+  }
+  
+  .payment-page-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .payment-page-summary {
+    gap: 0.5rem;
+  }
+  
+  .payment-page-info-row {
+    font-size: 0.85rem;
+    gap: 0.5rem;
+  }
+  
+  .payment-page-divider {
+    margin: 0.6rem 0;
+  }
+  
+  .payment-page-vehicle-row {
+    gap: 0.6rem;
+  }
+  
+  .payment-page-vehicle-img {
+    width: 3.5rem;
+    height: 2.5rem;
+  }
+  
+  .payment-page-vehicle-name {
+    font-size: 0.95rem;
+  }
+  
+  .payment-page-vehicle-feature {
+    font-size: 0.75rem;
+  }
+  
+  .payment-page-addons-row {
+    font-size: 0.85rem;
+    margin-top: 0.3rem;
+  }
+  
+  .payment-page-total-row {
+    margin-top: 0.8rem;
+    padding-top: 0.8rem;
+  }
+  
+  .payment-page-total-label {
+    font-size: 1.1rem;
+  }
+  
+  .payment-page-btn {
+    padding: 0.7rem 0;
+    font-size: 0.9rem;
+    gap: 0.5rem;
+    min-height: 2.5rem;
+  }
+  
+  .payment-page-btn-spinner {
+    width: 1rem;
+    height: 1rem;
+  }
 }
