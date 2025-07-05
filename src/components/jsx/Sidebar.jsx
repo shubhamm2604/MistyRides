@@ -1,15 +1,7 @@
 import React from 'react';
-
-import { useBooking } from './BookingContext'    
-import { useLocation, useNavigate } from 'react-router-dom';
-
-import '../css/Sidebar.css'; 
-
-const steps = [
-  'Ride info',
-  'Choose a vehicle',
-  'Payment',
-];
+import { Edit3 } from 'lucide-react';
+import { useBooking } from './BookingContext';
+import '../css/Sidebar.css';
 
 const includedServices = [
   'Flight & Ride Tracking',
@@ -19,37 +11,33 @@ const includedServices = [
   'Free 60 minutes waiting time for airport pickups, 15 minutes for all others',
 ];
 
-const Sidebar = ({ currentStep }) => {
-  const { formData } = useBooking();
-  const location = useLocation();
-  const navigate = useNavigate();
-  const showModify = location.pathname !== '/book';
+const Sidebar = () => {
+  const { formData, goToStep } = useBooking();
+
+  const handleModify = () => {
+    goToStep(1); // Go back to booking form
+  };
 
   return (
     <aside className="sidebar-root">
-      {/* Progress Indicator */}
-      <div className="sidebar-progress">
-        {steps.map((step, idx) => (
-          <div key={step} className="sidebar-progress-step">
-            <div className={`sidebar-progress-circle ${idx === currentStep ? 'active' : idx < currentStep ? 'done' : ''}`}>{idx + 1}</div>
-            {idx < steps.length - 1 && (
-              <div className={`sidebar-progress-bar ${idx < currentStep ? 'done' : ''}`}></div>
-            )}
-          </div>
-        ))}
-      </div>
       {/* Ride Info */}
       <div className="sidebar-rideinfo">
         <h3 className="sidebar-rideinfo-title">Ride Info</h3>
         <div className="sidebar-rideinfo-mapbox">
-          <img src="https://maps.googleapis.com/maps/api/staticmap?center=London&zoom=10&size=350x120&maptype=roadmap&markers=color:red%7CLondon&key=dummy" alt="Map preview" className="sidebar-rideinfo-map" />
+          <img 
+            src="https://maps.googleapis.com/maps/api/staticmap?center=London&zoom=10&size=350x120&maptype=roadmap&markers=color:red%7CLondon&key=dummy" 
+            alt="Map preview" 
+            className="sidebar-rideinfo-map" 
+          />
         </div>
         <div className="sidebar-rideinfo-details">
           <div className="sidebar-rideinfo-row">
             <span role="img" aria-label="calendar">📅</span> {formData.date || '--'}
             <span role="img" aria-label="clock">⏰</span> {formData.time || '--'}
-            <span role="img" aria-label="user">👤</span> {formData.passengers || '--'}
-            <span role="img" aria-label="bag">🧳</span> {formData.luggage || '--'}
+          </div>
+          <div className="sidebar-rideinfo-row">
+            <span role="img" aria-label="user">👤</span> {formData.passengers || '--'} passengers
+            <span role="img" aria-label="bag">🧳</span> {formData.luggage || '--'} bags
           </div>
           <div className="sidebar-rideinfo-row">
             <span role="img" aria-label="pickup">📍</span> {formData.pickup || '--'}
@@ -64,6 +52,7 @@ const Sidebar = ({ currentStep }) => {
           )}
         </div>
       </div>
+
       {/* Included Services */}
       <div className="sidebar-included">
         <h4 className="sidebar-included-title">All our vehicles include:</h4>
@@ -75,15 +64,15 @@ const Sidebar = ({ currentStep }) => {
           ))}
         </ul>
       </div>
+
       {/* Modify Button */}
-      {showModify && (
-        <button
-          className="sidebar-modify-btn"
-          onClick={() => navigate('/book')}
-        >
-          Modify
-        </button>
-      )}
+      <button
+        className="sidebar-modify-btn"
+        onClick={handleModify}
+      >
+        <Edit3 className="sidebar-modify-icon" />
+        Modify Details
+      </button>
     </aside>
   );
 };

@@ -25,9 +25,21 @@ body, html {
   padding: 1rem;
 }
 
+.app-section.booking-flow {
+  flex-direction: row;
+  gap: 2rem;
+  align-items: flex-start;
+  padding-top: 6rem; /* Account for fixed header + stepper */
+}
+
 .app-section-main {
   flex: 1;
   width: 100%;
+}
+
+/* Booking flow specific styles */
+.booking-flow .app-section-main {
+  max-width: none;
 }
 
 /* Responsive breakpoints */
@@ -43,6 +55,12 @@ body, html {
     padding: 0.5rem;
   }
   
+  .app-section.booking-flow {
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 5rem;
+  }
+  
   .app-section-main {
     padding: 0;
   }
@@ -51,5 +69,9 @@ body, html {
 @media (max-width: 480px) {
   .app-section {
     padding: 0.25rem;
+  }
+  
+  .app-section.booking-flow {
+    padding-top: 4rem;
   }
 }

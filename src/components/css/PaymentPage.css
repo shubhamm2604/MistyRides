@@ -1,7 +1,7 @@
 .payment-page-root {
   width: 100%;
   max-width: 100%;
-  margin: 1.5rem auto;
+  margin: 0 auto;
   background: #fff;
   border-radius: 1rem;
   box-shadow: 0 4px 32px 0 rgba(162,28,175,0.08);
@@ -11,19 +11,59 @@
   gap: 1.5rem;
 }
 
+.payment-page-header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
 .payment-page-title {
   font-size: 1.5rem;
   font-weight: bold;
-  text-align: center;
   color: #a21caf;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   line-height: 1.3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.payment-page-title-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #a21caf;
+}
+
+.payment-page-desc {
+  color: #6b7280;
+  font-size: 0.9rem;
+  line-height: 1.5;
 }
 
 .payment-page-summary {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 1rem;
+}
+
+.payment-page-summary-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.payment-page-info-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.payment-page-section-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.5rem;
 }
 
 .payment-page-info-row {
@@ -31,13 +71,39 @@
   align-items: center;
   gap: 0.6rem;
   color: #6b7280;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   flex-wrap: wrap;
+}
+
+.payment-page-customer-info {
+  background: #f9fafb;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb;
+}
+
+.payment-page-customer-name {
+  font-weight: 600;
+  color: #111827;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.payment-page-customer-contact {
+  color: #6b7280;
+  font-size: 0.8rem;
+  margin-bottom: 0.25rem;
+}
+
+.payment-page-special-requests {
+  color: #6b7280;
+  font-size: 0.8rem;
+  font-style: italic;
 }
 
 .payment-page-divider {
   border-top: 1px solid #e5e7eb;
-  margin: 0.8rem 0;
+  margin: 0.5rem 0;
 }
 
 .payment-page-vehicle-row {
@@ -45,6 +111,7 @@
   align-items: center;
   gap: 0.8rem;
   flex-wrap: wrap;
+  margin-bottom: 0.5rem;
 }
 
 .payment-page-vehicle-img {
@@ -58,19 +125,24 @@
 
 .payment-page-vehicle-name {
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #111827;
 }
 
 .payment-page-vehicle-feature {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: #a1a1aa;
 }
 
+.payment-page-vehicle-price {
+  font-size: 0.8rem;
+  color: #ea580c;
+  font-weight: 600;
+}
+
 .payment-page-addons-row {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: #6b7280;
-  margin-top: 0.4rem;
 }
 
 .payment-page-total-row {
@@ -84,32 +156,67 @@
 
 .payment-page-total-label {
   font-weight: bold;
-  font-size: 1.2rem;
-  color: #f59e42;
+  font-size: 1.1rem;
+  color: #a21caf;
+}
+
+.payment-page-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
 .payment-page-btn {
-  padding: 0.8rem 0;
-  background: linear-gradient(90deg, #a21caf, #f59e42);
-  color: #fff;
-  border: none;
-  border-radius: 0.6rem;
+  padding: 0.8rem 1rem;
+  font-size: 0.9rem;
   font-weight: 600;
-  font-size: 1rem;
+  border-radius: 0.6rem;
+  border: none;
   cursor: pointer;
-  transition: all 0.2s;
-  box-shadow: 0 2px 8px 0 rgba(162,28,175,0.10);
+  transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.6rem;
-  width: 100%;
+  gap: 0.5rem;
   min-height: 2.8rem;
+  width: 100%;
 }
 
-.payment-page-btn:hover {
+.payment-page-btn-back {
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #d1d5db;
+}
+
+.payment-page-btn-back:hover {
+  background: #e5e7eb;
+  transform: translateY(-1px);
+}
+
+.payment-page-btn-pay {
+  background: linear-gradient(90deg, #a21caf, #f59e42);
+  color: #fff;
+  box-shadow: 0 2px 8px 0 rgba(162,28,175,0.10);
+}
+
+.payment-page-btn-pay:hover:not(:disabled) {
   background: linear-gradient(90deg, #f59e42, #a21caf);
   box-shadow: 0 4px 16px 0 rgba(245,158,66,0.10);
+  transform: translateY(-1px);
+}
+
+.payment-page-btn-pay:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.payment-page-btn-icon {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
 }
 
 .payment-page-btn-loading {
@@ -133,7 +240,7 @@
 /* Responsive breakpoints */
 @media (min-width: 480px) {
   .payment-page-root {
-    max-width: 28rem;
+    max-width: 32rem;
     margin: 2rem auto;
     padding: 2rem;
     gap: 2rem;
@@ -142,24 +249,49 @@
   
   .payment-page-title {
     font-size: 1.75rem;
-    margin-bottom: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .payment-page-title-icon {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+  
+  .payment-page-desc {
+    font-size: 1rem;
   }
   
   .payment-page-summary {
-    gap: 0.75rem;
+    gap: 1.25rem;
+  }
+  
+  .payment-page-summary-title {
+    font-size: 1.2rem;
+  }
+  
+  .payment-page-section-title {
+    font-size: 1rem;
   }
   
   .payment-page-info-row {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     gap: 0.75rem;
   }
   
-  .payment-page-divider {
-    margin: 1rem 0;
+  .payment-page-customer-info {
+    padding: 1rem;
   }
   
-  .payment-page-vehicle-row {
-    gap: 1rem;
+  .payment-page-customer-name {
+    font-size: 1rem;
+  }
+  
+  .payment-page-customer-contact {
+    font-size: 0.85rem;
+  }
+  
+  .payment-page-special-requests {
+    font-size: 0.85rem;
   }
   
   .payment-page-vehicle-img {
@@ -169,32 +301,41 @@
   }
   
   .payment-page-vehicle-name {
-    font-size: 1.05rem;
+    font-size: 1rem;
   }
   
   .payment-page-vehicle-feature {
+    font-size: 0.8rem;
+  }
+  
+  .payment-page-vehicle-price {
     font-size: 0.85rem;
   }
   
   .payment-page-addons-row {
-    font-size: 0.95rem;
-    margin-top: 0.5rem;
-  }
-  
-  .payment-page-total-row {
-    margin-top: 1.25rem;
-    padding-top: 1.25rem;
+    font-size: 0.85rem;
   }
   
   .payment-page-total-label {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
+  }
+  
+  .payment-page-actions {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1.5rem;
   }
   
   .payment-page-btn {
-    padding: 1rem 0;
-    font-size: 1.05rem;
-    gap: 0.75rem;
-    border-radius: 0.75rem;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    width: auto;
+    min-width: 180px;
+  }
+  
+  .payment-page-btn-icon {
+    width: 1.1rem;
+    height: 1.1rem;
   }
   
   .payment-page-btn-spinner {
@@ -205,37 +346,29 @@
 
 @media (min-width: 640px) {
   .payment-page-root {
-    max-width: 30rem;
+    max-width: 36rem;
   }
   
-  .payment-page-info-row {
-    font-size: 1rem;
+  .payment-page-title {
+    font-size: 1.9rem;
   }
   
-  .payment-page-vehicle-name {
+  .payment-page-desc {
     font-size: 1.1rem;
   }
   
-  .payment-page-vehicle-feature {
-    font-size: 0.9rem;
-  }
-  
-  .payment-page-addons-row {
-    font-size: 1rem;
+  .payment-page-summary-title {
+    font-size: 1.25rem;
   }
   
   .payment-page-total-label {
-    font-size: 1.3rem;
-  }
-  
-  .payment-page-btn {
-    font-size: 1.1rem;
+    font-size: 1.25rem;
   }
 }
 
 @media (min-width: 768px) {
   .payment-page-root {
-    max-width: 32rem;
+    max-width: 40rem;
     padding: 2.5rem 2rem;
   }
   
@@ -243,9 +376,18 @@
     font-size: 2rem;
   }
   
+  .payment-page-desc {
+    font-size: 1.15rem;
+  }
+  
   .payment-page-vehicle-img {
     width: 5rem;
     height: 3.5rem;
+  }
+  
+  .payment-page-btn {
+    font-size: 1.05rem;
+    min-width: 200px;
   }
 }
 
@@ -260,24 +402,46 @@
   
   .payment-page-title {
     font-size: 1.3rem;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .payment-page-title-icon {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+  
+  .payment-page-desc {
+    font-size: 0.85rem;
   }
   
   .payment-page-summary {
-    gap: 0.5rem;
+    gap: 0.8rem;
+  }
+  
+  .payment-page-summary-title {
+    font-size: 1rem;
+  }
+  
+  .payment-page-section-title {
+    font-size: 0.85rem;
   }
   
   .payment-page-info-row {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     gap: 0.5rem;
   }
   
-  .payment-page-divider {
-    margin: 0.6rem 0;
+  .payment-page-customer-info {
+    padding: 0.6rem;
   }
   
-  .payment-page-vehicle-row {
-    gap: 0.6rem;
+  .payment-page-customer-name {
+    font-size: 0.85rem;
+  }
+  
+  .payment-page-customer-contact,
+  .payment-page-special-requests {
+    font-size: 0.75rem;
   }
   
   .payment-page-vehicle-img {
@@ -286,32 +450,39 @@
   }
   
   .payment-page-vehicle-name {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
   }
   
   .payment-page-vehicle-feature {
+    font-size: 0.7rem;
+  }
+  
+  .payment-page-vehicle-price {
     font-size: 0.75rem;
   }
   
   .payment-page-addons-row {
-    font-size: 0.85rem;
-    margin-top: 0.3rem;
-  }
-  
-  .payment-page-total-row {
-    margin-top: 0.8rem;
-    padding-top: 0.8rem;
+    font-size: 0.75rem;
   }
   
   .payment-page-total-label {
-    font-size: 1.1rem;
+    font-size: 1rem;
+  }
+  
+  .payment-page-actions {
+    gap: 0.75rem;
+    margin-top: 0.75rem;
   }
   
   .payment-page-btn {
-    padding: 0.7rem 0;
-    font-size: 0.9rem;
-    gap: 0.5rem;
+    padding: 0.7rem 0.8rem;
+    font-size: 0.85rem;
     min-height: 2.5rem;
+  }
+  
+  .payment-page-btn-icon {
+    width: 0.9rem;
+    height: 0.9rem;
   }
   
   .payment-page-btn-spinner {

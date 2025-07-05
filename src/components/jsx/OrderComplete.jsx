@@ -1,18 +1,76 @@
 import React from 'react';
-
+import { Check, Home, Download } from 'lucide-react';
+import { useBooking } from './BookingContext';
 import '../css/OrderComplete.css';
 
-const OrderComplete = () => (
-  <div className="order-complete-root">
-    <div className="order-complete-content">
-      <div className="order-complete-iconbox">
-        <svg className="order-complete-icon" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
+const OrderComplete = () => {
+  const { resetBooking, formData, selectedVehicle, customerDetails } = useBooking();
+
+  const handleBackToHome = () => {
+    resetBooking();
+    window.location.href = '/';
+  };
+
+  const generateBookingReference = () => {
+    return `MR${Date.now().toString().slice(-6)}`;
+  };
+
+  return (
+    <div className="order-complete-root">
+      <div className="order-complete-content">
+        <div className="order-complete-iconbox">
+          <Check className="order-complete-icon" />
+        </div>
+        
+        <h2 className="order-complete-title">Booking Confirmed!</h2>
+        
+        <div className="order-complete-details">
+          <p className="order-complete-message">
+            Thank you, {customerDetails.firstName}! Your booking has been confirmed.
+          </p>
+          
+          <div className="order-complete-reference">
+            <strong>Booking Reference:</strong> {generateBookingReference()}
+          </div>
+          
+          <div className="order-complete-summary">
+            <div className="order-complete-summary-item">
+              <span>📅 Date:</span> {formData.date}
+            </div>
+            <div className="order-complete-summary-item">
+              <span>⏰ Time:</span> {formData.time}
+            </div>
+            <div className="order-complete-summary-item">
+              <span>🚗 Vehicle:</span> {selectedVehicle?.name}
+            </div>
+            <div className="order-complete-summary-item">
+              <span>📧 Email:</span> {customerDetails.email}
+            </div>
+          </div>
+          
+          <p className="order-complete-note">
+            A confirmation email has been sent to your email address with all the booking details.
+            Our driver will contact you 30 minutes before pickup.
+          </p>
+        </div>
       </div>
-      <h2 className="order-complete-title">Thank you!</h2>
-      <p className="order-complete-message">Your booking is complete.<br />A confirmation has been sent to your email.</p>
+      
+      <div className="order-complete-actions">
+        <button 
+          onClick={handleBackToHome}
+          className="order-complete-btn order-complete-btn-home"
+        >
+          <Home className="order-complete-btn-icon" />
+          Back to Home
+        </button>
+        
+        <button className="order-complete-btn order-complete-btn-download">
+          <Download className="order-complete-btn-icon" />
+          Download Receipt
+        </button>
+      </div>
     </div>
-    <a href="/" className="order-complete-btn">Back to Home</a>
-  </div>
-);
+  );
+};
 
 export default OrderComplete;

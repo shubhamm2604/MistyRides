@@ -6,11 +6,10 @@ import {
   Car, Timer, RefreshCw, Clock10
 } from 'lucide-react'
 import { GOOGLE_API_KEY } from '../../config'
-import { useNavigate } from 'react-router-dom';
 import { useBooking } from './BookingContext';
 
-const BookingForm = () => {
-  const { formData: contextFormData, updateFormData } = useBooking();
+const BookingForm = ({ onSubmit }) => {
+  const { formData: contextFormData, updateFormData, nextStep } = useBooking();
   const [serviceType, setServiceType] = useState(contextFormData.serviceType || 'oneway')
   const [formData, setFormData] = useState({
     date: contextFormData.date || '',
@@ -31,8 +30,6 @@ const BookingForm = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [pickupPlaceSelected, setPickupPlaceSelected] = useState(!!contextFormData.pickup);
   const [dropoffPlaceSelected, setDropoffPlaceSelected] = useState(!!contextFormData.dropoff);
-  const [showSuccess, setShowSuccess] = useState(false)
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (!contextFormData.date) {
@@ -40,27 +37,6 @@ const BookingForm = () => {
       setFormData(prev => ({ ...prev, date: today }))
     }
   }, [contextFormData.date])
-
-  useEffect(() => {
-    setFormData(prev => ({
-      ...prev,
-      serviceType,
-      date: '',
-      time: '',
-      passengers: '',
-      luggage: '',
-      pickup: '',
-      dropoff: '',
-      hours: '',
-      pickupLat: null,
-      pickupLng: null,
-      dropoffLat: null,
-      dropoffLng: null,
-    }))
-    setDistanceInfo(null)
-    setPickupPlaceSelected(false);
-    setDropoffPlaceSelected(false);
-  }, [serviceType])
 
   const handleInputChange = (field, value) => {
     setFormData(prev => ({ ...prev, [field]: value }))
@@ -79,7 +55,6 @@ const BookingForm = () => {
   }
 
   const validateForm = () => {
-    // Basic validation for required fields
     return (
       formData.date &&
       formData.time &&
@@ -97,16 +72,29 @@ const BookingForm = () => {
       alert('Please fill all required fields.');
       return;
     }
+    
     setIsLoading(true);
+    
+    // Update context with form data
+    const completeFormData = { 
+      ...formData, 
+      serviceType, 
+      ...(distanceInfo || {}) 
+    };
+    
+    updateFormData(completeFormData);
+    
     setTimeout(() => {
       setIsLoading(false);
-      updateFormData({ ...formData, serviceType, ...(distanceInfo || {}) });
-      navigate('/select-vehicle');
+      if (onSubmit) {
+        onSubmit(completeFormData);
+      } else {
+        nextStep(); // Move to vehicle selection
+      }
     }, 1000);
   }
 
-  // 🧠 Calculate distance and time
-
+  // Calculate distance and time
   useEffect(() => {
     const fetchDistance = async () => {
       if (!formData.pickup || !formData.dropoff) return
@@ -168,56 +156,6 @@ const BookingForm = () => {
       default: return 'Choose Vehicle'
     }
   }
-  const onPickupPlaceChanged = () => {
-    if (pickupAutocomplete !== null) {
-      const place = pickupAutocomplete.geatPlace();
-      if (place.geometry && place.geometry.location) {
-        setFormData(prev => ({
-          ...prev,
-          pickup: place.formatted_address,
-          pickupLat: place.geometry.location.lat(), // Add this line
-          pickupLng: place.geometry.location.lng(), // Add this line
-        }));
-        setPickupPlaceSelected(true);
-      } else {
-        // Handle cases where no geometry or location is available
-        setFormData(prev => ({
-          ...prev,
-          pickup: place.name || '',
-          pickupLat: null, // Add this line
-          pickupLng: null, // Add this line
-        }));
-        setPickupPlaceSelected(false);
-      }
-    } else {
-      console.log('Autocomplete is not loaded yet!');
-    }
-  };
-  const onDropoffPlaceChanged = () => {
-    if (dropoffAutocomplete !== null) {
-      const place = dropoffAutocomplete.getPlace();
-      if (place.geometry && place.geometry.location) {
-        setFormData(prev => ({
-          ...prev,
-          dropoff: place.formatted_address,
-          dropoffLat: place.geometry.location.lat(), // Add this line
-          dropoffLng: place.geometry.location.lng(), // Add this line
-        }));
-        setDropoffPlaceSelected(true);
-      } else {
-        // Handle cases where no geometry or location is available
-        setFormData(prev => ({
-          ...prev,
-          dropoff: place.name || '',
-          dropoffLat: null, // Add this line
-          dropoffLng: null, // Add this line
-        }));
-        setDropoffPlaceSelected(false);
-      }
-    } else {
-      console.log('Autocomplete is not loaded yet!');
-    }
-  };
 
   return (
     <div className="bookingform-outer">
@@ -242,13 +180,6 @@ const BookingForm = () => {
             ))}
           </div>
         </div>
-
-        {/* Success Message */}
-        {showSuccess && (
-          <div className="bookingform-success">
-            ✅ Your booking request has been submitted successfully!
-          </div>
-        )}
 
         {/* Form Start */}
         <form onSubmit={handleSubmit} className="bookingform-form">
