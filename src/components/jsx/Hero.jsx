@@ -69,20 +69,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-
-      {/* Trust Indicators */}
-      <div className="hero-trust">
-        <div className="hero-trust-inner">
-          <div className="hero-trust-title">
-            Trusted by leading companies worldwide
-          </div>
-          <div className="hero-trust-logos">
-            {[1, 2, 3, 4, 5].map((i) => (
-              <div key={i} className="hero-trust-logo"></div>
-            ))}
-          </div>
-        </div>
-      </div>
     </section>
   )
 }

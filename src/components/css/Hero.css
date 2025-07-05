@@ -163,41 +163,6 @@
   width: 100%;
 }
 
-.hero-trust {
-  background-color: transparent;
-  backdrop-filter: none;
-  border-top: 1px solid #e5e7eb;
-  margin-top: 4rem;
-}
-
-.hero-trust-inner {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem 1.5rem;
-  text-align: center;
-}
-
-.hero-trust-title {
-  color: #6b7280;
-  font-weight: 500;
-  margin-bottom: 1.5rem;
-}
-
-.hero-trust-logos {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 3rem;
-  opacity: 0.6;
-  flex-wrap: wrap;
-}
-
-.hero-trust-logo {
-  height: 2rem;
-  width: 6rem;
-  background-color: transparent;
-  border-radius: 0.375rem;
-}
 
 @keyframes slideUp {
   0% {

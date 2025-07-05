@@ -24,12 +24,12 @@
   border-radius: 9999px;
   font-size: 1rem;
   font-weight: 500;
-  margin:0.2rem;
+  margin: 0.2rem;
   border: 0.8px solid #7bcefa;
 }
 
 .fleet-header-badge-icon {
-   width: 1.25rem;
+  width: 1.25rem;
   height: 1.25rem;
   fill: currentColor;
 }
@@ -38,15 +38,20 @@
   font-size: 2.5rem;
   font-weight: 700;
   color: #111827;
-  margin:2px;
+  margin: 2px;
 }
 
 .fleet-title-gradient {
-  display: block;
   background: linear-gradient(to right, #0284c7, #c026d3);
   -webkit-background-clip: text;
-  background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 2.5rem;
+  font-weight: bold;
+  font-size: inherit;
+  /* Matches the parent h2 size */
+  display: inline;
+  margin-left: 10px;
 }
 
 .fleet-desc {
@@ -56,7 +61,7 @@
   margin: 0 auto;
 }
 
-.fleet-grid{
+.fleet-grid {
   display: grid;
   gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -132,7 +137,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1rem;
 }
 
 .fleet-card-title {
@@ -153,14 +157,14 @@
 .fleet-card-desc {
   font-size: 0.95rem;
   color: #6b7280;
-  margin-bottom: 1.5rem;
+  margin-top: 0.5rem;
 }
 
 .fleet-card-capacity-row {
   display: flex;
   align-items: center;
   gap: 2rem;
-  margin-bottom: 1.5rem;
+  margin-top: 0.5rem;
 }
 
 .fleet-card-capacity {
@@ -180,7 +184,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.5rem;
-  margin-bottom: 1.5rem;
+  margin-top: 0.5rem;
 }
 
 .fleet-card-feature {
@@ -207,7 +211,7 @@
   border: none;
   border-radius: 0.75rem;
   padding: 1rem 0;
-  margin-top: auto;
+  margin-top: 1rem;
   transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
   box-shadow: 0 2px 8px 0 rgba(99, 102, 241, 0.10);
   display: flex;
@@ -339,6 +343,7 @@
   margin-bottom: 2.5rem;
   width: 100%;
 }
+
 .fleet-scroll-arrow {
   background: linear-gradient(to right, #0284c7, #c026d3);
   border: none;
@@ -354,12 +359,15 @@
   z-index: 2;
   transition: background 0.2s, transform 0.2s;
 }
+
 .fleet-scroll-arrow.left {
   margin-right: 1rem;
 }
+
 .fleet-scroll-arrow.right {
   margin-left: 1rem;
 }
+
 .fleet-scroll-arrow:active {
   transform: scale(0.95);
 }
@@ -368,6 +376,7 @@
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
+
 .fleet-grid-horizontal.no-scrollbar::-webkit-scrollbar {
   display: none;
 }

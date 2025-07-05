@@ -25,10 +25,10 @@ function App() {
   return (
     <div className="app-root">
       {/* <BackgroundElements /> */}
+            <Header />
       <Routes>
         <Route path="/" element={
           <>
-            <Header />
             <Hero />
             <Services />
             <Features />

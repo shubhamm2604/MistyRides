@@ -43,11 +43,15 @@
 }
 
 .features-gradient-text {
-  display: block;
    background: linear-gradient(to right, #0284c7, #c026d3);
   -webkit-background-clip: text;
-  background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 2.5rem;
+  font-weight: bold;
+   font-size: inherit; /* Matches the parent h2 size */
+  display: inline;
+  margin-left: 10px;
 }
 
 .features-subtitle {

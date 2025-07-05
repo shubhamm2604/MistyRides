@@ -22,7 +22,7 @@ const Fleet = () => {
       image: luxurySuvImg,
       passengers: '1-6',
       luggage: '4-6',
-      features: ['Premium Interior', 'Extra Space', 'Entertainment System', 'Refreshments'],
+      features: ['Premium Interior', 'Extra Space', 'Entertainment', 'Refreshments'],
       price: 'From $65',
       description: 'Spacious and luxurious, ideal for families and group travel.'
     },
