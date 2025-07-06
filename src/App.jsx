@@ -41,7 +41,6 @@ function App() {
           <Route path="/services" element={
             <div className="page-container">
               <Services />
-              <Features />
             </div>
           } />
           
