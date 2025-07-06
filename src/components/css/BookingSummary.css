@@ -1,0 +1,165 @@
+.booking-summary-root {
+  min-height: 100vh;
+  background: #f8fafc;
+  display: flex;
+  flex-direction: column;
+}
+.booking-summary-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2.5rem 1.5rem 0 1.5rem;
+}
+.booking-summary-progress {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 0.5rem;
+}
+.booking-summary-progress-step {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+.booking-summary-progress-circle {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: #bae6fd;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.booking-summary-progress-circle.active {
+  background: #0ea5e9;
+  transform: scale(1.12);
+  box-shadow: 0 2px 8px 0 rgba(14,165,233,0.15);
+}
+.booking-summary-progress-bar {
+  flex: 1;
+  height: 0.25rem;
+  background: #e5e7eb;
+  margin: 0 0.25rem;
+  border-radius: 0.25rem;
+  transition: background 0.2s;
+}
+.booking-summary-progress-bar.active {
+  background: #0ea5e9;
+}
+.booking-summary-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 48rem;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .booking-summary-content {
+    flex-direction: row;
+  }
+}
+.booking-summary-rideinfo {
+  flex: 1;
+  background: #f1f5f9;
+  border-radius: 1rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 2px 8px 0 rgba(14,165,233,0.06);
+}
+.booking-summary-rideinfo-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #0f172a;
+}
+.booking-summary-rideinfo-list {
+  margin-bottom: 1.5rem;
+  color: #334155;
+  font-size: 1rem;
+  list-style: none;
+  padding: 0;
+}
+.booking-summary-rideinfo-item {
+  margin-bottom: 0.5rem;
+}
+.booking-summary-rideinfo-label {
+  font-weight: 600;
+  text-transform: capitalize;
+  margin-right: 0.5rem;
+}
+.booking-summary-modify-btn {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(90deg, #0ea5e9, #f59e42);
+  color: #fff;
+  border: none;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px 0 rgba(14,165,233,0.10);
+}
+.booking-summary-modify-btn:hover {
+  background: linear-gradient(90deg, #f59e42, #0ea5e9);
+  box-shadow: 0 4px 16px 0 rgba(245,158,66,0.10);
+}
+.booking-summary-vehicles {
+  flex: 1;
+  background: #f1f5f9;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 2px 8px 0 rgba(14,165,233,0.06);
+}
+.booking-summary-vehicles-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #0f172a;
+}
+.booking-summary-vehicles-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.booking-summary-vehicle-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  border: 2px solid #e5e7eb;
+  background: #fff;
+  cursor: pointer;
+  transition: border 0.2s, background 0.2s, box-shadow 0.2s;
+}
+.booking-summary-vehicle-card.selected {
+  border: 2px solid #0ea5e9;
+  background: #e0f2fe;
+  box-shadow: 0 2px 8px 0 rgba(14,165,233,0.10);
+}
+.booking-summary-vehicle-img {
+  width: 4rem;
+  height: 3rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+.booking-summary-vehicle-name {
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+.booking-summary-vehicle-selected {
+  margin-left: auto;
+  color: #0ea5e9;
+  font-weight: bold;
+}
