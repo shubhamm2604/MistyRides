@@ -7,9 +7,11 @@ import {
 } from 'lucide-react'
 import { GOOGLE_API_KEY } from '../../config'
 import { useBooking } from './BookingContext';
+import { useNavigate } from 'react-router-dom';
 
 const BookingForm = ({ onSubmit }) => {
-  const { formData: contextFormData, updateFormData, nextStep } = useBooking();
+  const { formData: contextFormData, updateFormData, nextStep, currentStep } = useBooking();
+  const navigate = useNavigate();
   const [serviceType, setServiceType] = useState(contextFormData.serviceType || 'oneway')
   const [formData, setFormData] = useState({
     date: contextFormData.date || '',
@@ -88,6 +90,10 @@ const BookingForm = ({ onSubmit }) => {
       setIsLoading(false);
       if (onSubmit) {
         onSubmit(completeFormData);
+      } else if (currentStep === 1) {
+        // If we're on the landing page, navigate to booking flow
+        navigate('/book');
+        nextStep(); // Move to vehicle selection
       } else {
         nextStep(); // Move to vehicle selection
       }

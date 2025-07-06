@@ -6,13 +6,7 @@ import Features from './components/jsx/Features'
 import Fleet from './components/jsx/Fleet'
 import About from './components/jsx/About'
 import Footer from './components/jsx/Footer'
-import BookingForm from './components/jsx/BookingForm'
-import VehicleSelection from './components/jsx/VehicleSelection'
-import CustomerDetails from './components/jsx/CustomerDetails'
-import PaymentPage from './components/jsx/PaymentPage'
-import OrderComplete from './components/jsx/OrderComplete'
-import Sidebar from './components/jsx/Sidebar'
-import StepperProgress from './components/jsx/StepperProgress'
+import BookingFlow from './components/jsx/BookingFlow'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { useBooking } from './components/jsx/BookingContext'
 import { LoadScript } from '@react-google-maps/api'
@@ -21,87 +15,86 @@ import './App.css';
 
 function App() {
   const location = useLocation();
-  const { currentStep, goToStep } = useBooking();
+  const { resetBooking } = useBooking();
   
-  // Check if we're in the booking flow (steps 2-4)
-  const isBookingFlow = currentStep >= 2;
-  
-  // Show sidebar for steps 2-4
-  const showSidebar = currentStep >= 2 && currentStep <= 4;
-
-  const renderBookingStep = () => {
-    switch (currentStep) {
-      case 1:
-        return (
-          <LoadScript googleMapsApiKey={GOOGLE_API_KEY} libraries={['places']}>
-            <Hero />
-          </LoadScript>
-        );
-      case 2:
-        return <VehicleSelection />;
-      case 3:
-        return <CustomerDetails />;
-      case 4:
-        return <PaymentPage />;
-      case 5:
-        return <OrderComplete />;
-      default:
-        return (
-          <LoadScript googleMapsApiKey={GOOGLE_API_KEY} libraries={['places']}>
-            <Hero />
-          </LoadScript>
-        );
+  // Reset booking when going back to home
+  React.useEffect(() => {
+    if (location.pathname === '/') {
+      resetBooking();
     }
-  };
+  }, [location.pathname, resetBooking]);
 
   return (
     <div className="app-root">
       <Header />
       
       <Routes>
+        {/* Home Page */}
         <Route path="/" element={
           <>
-            {/* Show stepper progress for booking flow */}
-            {isBookingFlow && (
-              <StepperProgress 
-                currentStep={currentStep} 
-                onStepClick={goToStep}
-              />
-            )}
-            
-            {/* Main content area */}
-            <div className={`app-section ${isBookingFlow ? 'booking-flow' : ''}`}>
-              {showSidebar && <Sidebar />}
-              <div className="app-section-main">
-                {renderBookingStep()}
-              </div>
-            </div>
-            
-            {/* Show other sections only on step 1 (home page) */}
-            {currentStep === 1 && (
-              <>
-                <Services />
-                <Features />
-                <Fleet />
-                <About />
-              </>
-            )}
+            <LoadScript googleMapsApiKey={GOOGLE_API_KEY} libraries={['places']}>
+              <Hero />
+            </LoadScript>
+            <Services />
+            <Features />
+            <Fleet />
+            <About />
           </>
         } />
         
-        <Route path="/book" element={
-          <div className="app-section">
-            <div className="app-section-main">
-              <LoadScript googleMapsApiKey={GOOGLE_API_KEY} libraries={['places']}>
-                <BookingForm />
-              </LoadScript>
+        {/* Services Page */}
+        <Route path="/services" element={
+          <div className="page-container">
+            <Services />
+            <Features />
+          </div>
+        } />
+        
+        {/* Features Page */}
+        <Route path="/features" element={
+          <div className="page-container">
+            <Features />
+          </div>
+        } />
+        
+        {/* Fleet Page */}
+        <Route path="/fleet" element={
+          <div className="page-container">
+            <Fleet />
+          </div>
+        } />
+        
+        {/* About Page */}
+        <Route path="/about" element={
+          <div className="page-container">
+            <About />
+          </div>
+        } />
+        
+        {/* Contact Page */}
+        <Route path="/contact" element={
+          <div className="page-container">
+            <div style={{ padding: '6rem 2rem 4rem', textAlign: 'center' }}>
+              <h1>Contact Us</h1>
+              <p>Get in touch with our team for any inquiries.</p>
+              <div style={{ marginTop: '2rem' }}>
+                <p><strong>Email:</strong> info@mistyride.com</p>
+                <p><strong>Phone:</strong> +1 (555) 123-4567</p>
+                <p><strong>Address:</strong> N-19 SINGAPUR GREEN VIEW, TALAWALI CHANDA, Manglia, Indore- 453771, Madhya Pradesh</p>
+              </div>
             </div>
           </div>
         } />
+        
+        {/* Booking Flow */}
+        <Route path="/book" element={
+          <LoadScript googleMapsApiKey={GOOGLE_API_KEY} libraries={['places']}>
+            <BookingFlow />
+          </LoadScript>
+        } />
       </Routes>
       
-      {/* Show footer only on step 1 or standalone pages */}
-      {currentStep === 1 && <Footer />}
+      <Footer />
     </div>
   )
 }

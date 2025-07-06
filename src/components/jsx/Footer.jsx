@@ -2,15 +2,16 @@
 import React from 'react';
 import '../css/Footer.css';
 import { Car, Phone, Mail, MapPin, Clock, Facebook, Twitter, Instagram, Linkedin, Star } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const quickLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'Services', href: '#services' },
-    { name: 'Features', href: '#features' },
-    { name: 'Fleet', href: '#fleet' },
-    { name: 'About', href: '#about' },
-    { name: 'Contact', href: '#contact' }
+    { name: 'Home', href: '/' },
+    { name: 'Services', href: '/services' },
+    { name: 'Features', href: '/features' },
+    { name: 'Fleet', href: '/fleet' },
+    { name: 'About', href: '/about' },
+    { name: 'Contact', href: '/contact' }
   ];
 
   const services = [
@@ -36,7 +37,7 @@ const Footer = () => {
 
           {/* Company Info */}
           <div className="footer-col">
-            <div className="footer-brand">
+            <Link to="/" className="footer-brand">
               <div className="footer-icon-bg">
                 <Car className="footer-icon" />
               </div>
@@ -44,7 +45,7 @@ const Footer = () => {
                 <h1 className="footer-title">MistyRide</h1>
                 <p className="footer-subtitle">Premium Transportation</p>
               </div>
-            </div>
+            </Link>
 
             <p className="footer-description">
               Your trusted partner for premium transportation services.
@@ -73,7 +74,7 @@ const Footer = () => {
             <ul className="footer-list">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <a href={link.href} className="footer-link">{link.name}</a>
+                  <Link to={link.href} className="footer-link">{link.name}</Link>
                 </li>
               ))}
             </ul>
@@ -85,7 +86,7 @@ const Footer = () => {
             <ul className="footer-list">
               {services.map((service, index) => (
                 <li key={index}>
-                  <a href="#services" className="footer-link">{service}</a>
+                  <Link to="/services" className="footer-link">{service}</Link>
                 </li>
               ))}
             </ul>
