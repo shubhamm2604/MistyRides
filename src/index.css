@@ -33,6 +33,9 @@ img {
   height: auto;
 }
 
+a:focus {
+  outline: none;
+}
 /* Responsive containers */
 .container {
   width: 100%;

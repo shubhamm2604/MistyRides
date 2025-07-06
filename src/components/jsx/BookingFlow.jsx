@@ -1,4 +1,5 @@
-import React from 'react';
+
+import React, { useEffect } from 'react';
 import BookingForm from './BookingForm';
 import VehicleSelection from './VehicleSelection';
 import CustomerDetails from './CustomerDetails';
@@ -9,8 +10,20 @@ import StepperProgress from './StepperProgress';
 import { useBooking } from './BookingContext';
 
 const BookingFlow = () => {
-  const { currentStep, goToStep } = useBooking();
-  
+
+  const { currentStep, goToStep,canAccessStep  } = useBooking();
+  useEffect(() => {
+  const step = window.localStorage.getItem('bookingStep');
+  if (step === '2') {
+    goToStep(2);
+    window.localStorage.removeItem('bookingStep'); // clean up
+  }
+}, [goToStep]);
+
+if (!canAccessStep(currentStep)) {
+  goToStep(1);
+}
+
   // Show sidebar for steps 2-4
   const showSidebar = currentStep >= 2 && currentStep <= 4;
   

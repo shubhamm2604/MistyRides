@@ -34,12 +34,20 @@
 }
 
 .header-logo-row {
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+  border: none;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  flex-shrink: 0;
+  gap: 10px;
 }
 
+.header-logo-row:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
 .header-logo-bg {
   background: linear-gradient(to right, #0284c7, #0369a1);
   padding: 0.4rem;
@@ -61,6 +69,8 @@
   background-clip: text;
   color: transparent;
   white-space: nowrap;
+  margin: 1px;
+  text-decoration: none;
 }
 
 .header-subtitle {
@@ -68,6 +78,7 @@
   color: #6b7280;   
   margin-top: -0.2rem;
   white-space: nowrap;
+  text-decoration: none;
 }
 
 .header-nav {

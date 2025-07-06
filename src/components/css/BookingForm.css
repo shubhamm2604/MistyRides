@@ -7,7 +7,7 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 1.5rem;
   margin: 1rem auto;
-  max-width: 100%;
+  max-width: 540px;
   width: 100%;
   animation: fadeInUp 0.4s ease-out;
 }
@@ -316,6 +316,10 @@
     margin: 0;
     padding-bottom: 0.5rem;
   }
+  
+  .bookingform-outer {
+    max-width: 600px;
+  }
 }
 
 @media (min-width: 768px) {
@@ -339,6 +343,11 @@
   .bookingform-field.bookingform-field-hours {
     flex: 0 0 180px;
     min-width: 160px;
+  }
+
+  
+  .bookingform-outer {
+    max-width: 650px;
   }
 }
 

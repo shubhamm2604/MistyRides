@@ -96,6 +96,7 @@ const BookingForm = ({ onSubmit }) => {
         onSubmit(completeFormData);
       } else if (isHomePage) {
         // If we're on the home page, navigate to booking flow and go to step 2
+            localStorage.setItem('bookingStep', '2');
         navigate('/book');
         nextStep(); // Move to vehicle selection
       } else {
