@@ -78,7 +78,6 @@ function App() {
                 <p>Get in touch with our team for any inquiries.</p>
                 <div style={{ marginTop: '2rem' }}>
                   <p><strong>Email:</strong> info@mistyride.com</p>
-                  <p><strong>Phone:</strong> +1 (555) 123-4567</p>
                   <p><strong>Address:</strong> N-19 SINGAPUR GREEN VIEW, TALAWALI CHANDA, Manglia, Indore- 453771, Madhya Pradesh</p>
                 </div>
               </div>
