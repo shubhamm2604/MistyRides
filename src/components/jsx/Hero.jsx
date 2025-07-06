@@ -1,8 +1,6 @@
 import React from 'react'
 import BookingForm from './BookingForm'
 import { Star, Shield, Clock, Users } from 'lucide-react'
-import { LoadScript } from '@react-google-maps/api'
-import { GOOGLE_API_KEY } from '../../config';
 import '../css/Hero.css' 
 
 const Hero = () => {
@@ -57,14 +55,9 @@ const Hero = () => {
           {/* Right Content - Booking Form */}
           <div className="hero-right">
             <div className="booking-form-outer">
-              <LoadScript
-                googleMapsApiKey={GOOGLE_API_KEY}
-                libraries={['places']}
-              >
-                <div className="booking-form-wrapper">
-                  <BookingForm />
-                </div>
-              </LoadScript>
+              <div className="booking-form-wrapper">
+                <BookingForm />
+              </div>
             </div>
           </div>
         </div>
