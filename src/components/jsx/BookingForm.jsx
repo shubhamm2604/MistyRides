@@ -7,11 +7,12 @@ import {
 } from 'lucide-react'
 import { GOOGLE_API_KEY } from '../../config'
 import { useBooking } from './BookingContext';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const BookingForm = ({ onSubmit }) => {
   const { formData: contextFormData, updateFormData, nextStep, currentStep, isStepValid } = useBooking();
   const navigate = useNavigate();
+  const location = useLocation();
   const [serviceType, setServiceType] = useState(contextFormData.serviceType || 'oneway')
   const [formData, setFormData] = useState({
     date: contextFormData.date || '',
@@ -32,6 +33,9 @@ const BookingForm = ({ onSubmit }) => {
   const [isLoading, setIsLoading] = useState(false)
   const [pickupPlaceSelected, setPickupPlaceSelected] = useState(!!contextFormData.pickup);
   const [dropoffPlaceSelected, setDropoffPlaceSelected] = useState(!!contextFormData.dropoff);
+
+  // Check if we're on the home page
+  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     if (!contextFormData.date) {
@@ -90,8 +94,8 @@ const BookingForm = ({ onSubmit }) => {
       setIsLoading(false);
       if (onSubmit) {
         onSubmit(completeFormData);
-      } else if (currentStep === 1) {
-        // If we're on the landing page, navigate to booking flow
+      } else if (isHomePage) {
+        // If we're on the home page, navigate to booking flow and go to step 2
         navigate('/book');
         nextStep(); // Move to vehicle selection
       } else {
@@ -158,6 +162,9 @@ const BookingForm = ({ onSubmit }) => {
   ]
 
   const getButtonText = () => {
+    if (isHomePage) {
+      return 'Start Booking Process';
+    }
     switch (serviceType) {
       default: return 'Choose Vehicle'
     }
