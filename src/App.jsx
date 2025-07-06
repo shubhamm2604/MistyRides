@@ -15,14 +15,22 @@ import './App.css';
 
 function App() {
   const location = useLocation();
-  const { resetBooking } = useBooking();
+  const { resetBooking, currentStep } = useBooking();
   
-  // Reset booking when going back to home
+  // Reset booking when navigating away from booking flow to other pages
   React.useEffect(() => {
-    if (location.pathname === '/') {
+    const isBookingFlow = location.pathname === '/book';
+    const isHomePage = location.pathname === '/';
+    
+    // Reset booking data if:
+    // 1. User is not on booking flow page AND not on home page
+    // 2. User is in booking flow (currentStep > 1) and navigates to any other page
+    if (!isBookingFlow && !isHomePage && currentStep > 1) {
+      resetBooking();
+    } else if (isHomePage && currentStep > 1) {
       resetBooking();
     }
-  }, [location.pathname, resetBooking]);
+  }, [location.pathname, resetBooking, currentStep]);
 
   return (
     <div className="app-root">
