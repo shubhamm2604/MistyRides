@@ -10,7 +10,7 @@ import { useBooking } from './BookingContext';
 import { useNavigate } from 'react-router-dom';
 
 const BookingForm = ({ onSubmit }) => {
-  const { formData: contextFormData, updateFormData, nextStep, currentStep } = useBooking();
+  const { formData: contextFormData, updateFormData, nextStep, currentStep, isStepValid } = useBooking();
   const navigate = useNavigate();
   const [serviceType, setServiceType] = useState(contextFormData.serviceType || 'oneway')
   const [formData, setFormData] = useState({
@@ -367,7 +367,7 @@ const BookingForm = ({ onSubmit }) => {
           {/* Submit */}
           <button
             type="submit"
-            disabled={isLoading}
+            disabled={isLoading || !validateForm()}
             className="bookingform-submit-btn"
           >
             {isLoading ? 'Processing...' : getButtonText()}

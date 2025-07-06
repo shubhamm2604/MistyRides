@@ -32,6 +32,7 @@ export const BookingProvider = ({ children }) => {
     specialRequests: ''
   });
   const [paymentInfo, setPaymentInfo] = useState({});
+  const [completedSteps, setCompletedSteps] = useState([]);
 
   const updateFormData = (data) => {
     setFormData(prev => ({ ...prev, ...data }));
@@ -53,8 +54,43 @@ export const BookingProvider = ({ children }) => {
     setPaymentInfo(prev => ({ ...prev, ...info }));
   };
 
+  const isStepValid = (step) => {
+    switch (step) {
+      case 1:
+        return formData.date && formData.time && formData.passengers && 
+               formData.luggage && formData.pickup && formData.dropoff &&
+               (formData.serviceType !== 'hourly' || formData.hours);
+      case 2:
+        return selectedVehicle !== null;
+      case 3:
+        return customerDetails.firstName && customerDetails.lastName && 
+               customerDetails.email && customerDetails.phone;
+      case 4:
+        return true;
+      default:
+        return false;
+    }
+  };
+
+  const canAccessStep = (step) => {
+    // Can always access step 1
+    if (step === 1) return true;
+    
+    // For other steps, check if all previous steps are completed
+    for (let i = 1; i < step; i++) {
+      if (!isStepValid(i)) {
+        return false;
+      }
+    }
+    return true;
+  };
+
   const nextStep = () => {
-    setCurrentStep(prev => Math.min(prev + 1, 4));
+    if (isStepValid(currentStep)) {
+      // Mark current step as completed
+      setCompletedSteps(prev => [...prev.filter(s => s !== currentStep), currentStep]);
+      setCurrentStep(prev => Math.min(prev + 1, 5));
+    }
   };
 
   const prevStep = () => {
@@ -62,7 +98,10 @@ export const BookingProvider = ({ children }) => {
   };
 
   const goToStep = (step) => {
-    setCurrentStep(step);
+    // Only allow navigation to accessible steps
+    if (canAccessStep(step)) {
+      setCurrentStep(step);
+    }
   };
 
   const resetBooking = () => {
@@ -93,24 +132,7 @@ export const BookingProvider = ({ children }) => {
       specialRequests: ''
     });
     setPaymentInfo({});
-  };
-
-  const isStepValid = (step) => {
-    switch (step) {
-      case 1:
-        return formData.date && formData.time && formData.passengers && 
-               formData.luggage && formData.pickup && formData.dropoff &&
-               (formData.serviceType !== 'hourly' || formData.hours);
-      case 2:
-        return selectedVehicle !== null;
-      case 3:
-        return customerDetails.firstName && customerDetails.lastName && 
-               customerDetails.email && customerDetails.phone;
-      case 4:
-        return true;
-      default:
-        return false;
-    }
+    setCompletedSteps([]);
   };
 
   return (
@@ -121,6 +143,7 @@ export const BookingProvider = ({ children }) => {
       addOns,
       customerDetails,
       paymentInfo,
+      completedSteps,
       updateFormData,
       updateSelectedVehicle,
       updateAddOns,
@@ -130,7 +153,8 @@ export const BookingProvider = ({ children }) => {
       prevStep,
       goToStep,
       resetBooking,
-      isStepValid
+      isStepValid,
+      canAccessStep
     }}>
       {children}
     </BookingContext.Provider>

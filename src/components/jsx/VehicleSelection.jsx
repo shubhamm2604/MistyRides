@@ -22,7 +22,7 @@ const vehicles = [
 ];
 
 const VehicleSelection = () => {
-  const { selectedVehicle, updateSelectedVehicle, addOns, updateAddOns, nextStep, prevStep } = useBooking();
+  const { selectedVehicle, updateSelectedVehicle, addOns, updateAddOns, nextStep, prevStep, isStepValid } = useBooking();
   const [activeCategory, setActiveCategory] = useState('sedan');
   const [selectedAddOns, setSelectedAddOns] = useState(addOns || []);
 
@@ -136,7 +136,7 @@ const VehicleSelection = () => {
         <button
           className="vehicle-card-btn vehicle-card-btn-next"
           onClick={handleNext}
-          disabled={!selectedVehicle}
+          disabled={!isStepValid(2)}
         >
           Continue to Customer Details
           <ArrowRight className="vehicle-card-btn-icon" />

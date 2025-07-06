@@ -4,7 +4,7 @@ import { useBooking } from './BookingContext';
 import '../css/CustomerDetails.css';
 
 const CustomerDetails = () => {
-  const { customerDetails, updateCustomerDetails, nextStep, prevStep } = useBooking();
+  const { customerDetails, updateCustomerDetails, nextStep, prevStep, isStepValid } = useBooking();
   const [formData, setFormData] = useState({
     firstName: customerDetails.firstName || '',
     lastName: customerDetails.lastName || '',

@@ -34,8 +34,17 @@
   flex: 1;
 }
 
-.stepper-step:hover {
+.stepper-step:hover:not(.disabled) {
   background: #f8fafc;
+}
+
+.stepper-step.disabled {
+  cursor: not-allowed !important;
+  opacity: 0.5 !important;
+}
+
+.stepper-step.disabled:hover {
+  background: transparent !important;
 }
 
 .stepper-circle {
@@ -109,6 +118,11 @@
 
 .stepper-step.completed .stepper-title {
   color: #10b981;
+}
+
+.stepper-step.disabled .stepper-title,
+.stepper-step.disabled .stepper-description {
+  color: #9ca3af !important;
 }
 
 .stepper-line {
