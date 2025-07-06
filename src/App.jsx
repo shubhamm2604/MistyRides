@@ -34,9 +34,6 @@ function App() {
           <Route path="/" element={
             <>
               <Hero />
-              <Services />
-              <Features />
-              <Fleet />
               <About />
             </>
           } />
